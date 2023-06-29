@@ -24,11 +24,21 @@ print("s_y_sq:", str(round(s_y_sq, 4)))
 print("s_xy:", str(round(s_xy, 4)))
 print("r:", str(round(r, 4)))
 print("r_sq:", str(round(r_sq, 4)))
-print("e:", str(round(e, 4)))
+print("E:", str(round(e, 4)))
 print("b:", str(round(b, 4)))
 print("a:", str(round(a, 5)))
 
-print("Equation of Regression Line: y =", str(round(a, 5)), f"+ {str(round(b, 4))}𝑥")
+print("Equation of Regression Line: y =", str(round(a, 5)), f"+ {str(round(b, 4))}𝑥\n")
 
-for idx, i, j in enumerate(dataPointTuple):
-    print(f"y_hat_{idx}:", (a+b) * i)
+y_hat_vals = []
+e_vals = []
+for i , j in dataPointTuple:
+    temp = a + b * i
+    y_hat_vals.append(temp)
+    e_vals.append(-1 * (temp - j))
+
+for index, val in enumerate(y_hat_vals):
+    print(f"y_hat_{index+1}:", val)
+print()
+for index, val in enumerate(e_vals):
+    print(f"e_{index+1}:", val)
